@@ -10,5 +10,13 @@ public class Photographer extends User implements Serializable{
     public Photographer(){
         
     }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
     private List<Order> orders;
 }

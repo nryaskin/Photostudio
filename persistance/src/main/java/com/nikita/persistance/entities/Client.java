@@ -10,6 +10,14 @@ public class Client extends User implements Serializable {
     public Client(){
         
     }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
     
     private List<Order> orders;
     
