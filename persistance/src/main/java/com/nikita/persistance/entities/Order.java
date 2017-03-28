@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Order implements Serializable{
+public class Order{
     
     public Order(){
         

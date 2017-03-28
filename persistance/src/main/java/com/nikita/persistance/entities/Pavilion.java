@@ -1,13 +1,12 @@
 package com.nikita.persistance.entities;
 
-import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 
 @Entity
-public class Pavilion implements Serializable{
+public class Pavilion{
     
     public Pavilion(){
         
