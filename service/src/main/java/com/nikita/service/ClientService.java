@@ -22,8 +22,5 @@ public class ClientService extends CRUDOperation<Client, ClientDTO> {
     protected AbstractFacade getFacade() {
         return clientFacade;
     }
-
-    
-
     
 }

@@ -7,6 +7,7 @@ import com.nikita.persistence.facade.AbstractFacade;
 import com.nikita.persistence.facade.OrderFacade;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -14,36 +15,58 @@ import javax.ejb.Stateless;
 public class OrderService extends CRUDOperation<Order, OrderDTO> {
 
     @EJB
-    OrderFacade orderFacade;
+    private OrderFacade orderFacade;
+    
+    @EJB
+    private NotificationService notificationService;
     
     public OrderService(){
         super(Order.class, OrderDTO.class);
     }
 
     public void makeOrder(OrderDTO order) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        getFacade().create(converter.convert(order, entityType));
+        notificationService.notify(order.getPhotographer(), order);
     }
 
     public void cancelOrder(OrderDTO order) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        getFacade().edit(converter.convert(order, entityType));
+        notificationService.notify(order.getPhotographer(), order);
     }
 
     public void acceptOrder(OrderDTO order) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        getFacade().edit(converter.convert(order, dtoType));
+        notificationService.notify(order.getClient(), order);
     }
 
     public List<OrderDTO> getNew(UserDTO user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.    
+        return chooseOrders(o -> o.getPhotographer()
+                .equals(converter.convert(user, entityType)) 
+                && !o.isAccepted());
     }
 
     public List<OrderDTO> getAcceptedOrders(UserDTO user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return chooseOrders(o -> o.getPhotographer()
+                .equals(converter.convert(user, entityType))
+                && o.isAccepted());
     }
 
     public List<OrderDTO> getOrders(UserDTO user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                return chooseOrders(o -> o.getClient()
+                .equals(converter.convert(user, entityType)));
     }
 
+    private List<OrderDTO> chooseOrders(Predicate<Order> predicate){
+        List<Order> ordersList = getFacade().findAll();
+        List<OrderDTO> dtoList = new ArrayList<>();
+        for(Order order : ordersList){
+            if(predicate.test(order)){
+                dtoList.add(converter.convert(order, dtoType));
+            }
+        }
+        return dtoList;
+    }
+    
     @Override
     protected AbstractFacade getFacade() {
         return orderFacade;

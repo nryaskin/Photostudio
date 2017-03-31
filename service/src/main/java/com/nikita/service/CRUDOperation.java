@@ -4,9 +4,7 @@ import com.nikita.persistence.facade.AbstractFacade;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
-import javax.ejb.Stateless;
 
-@Stateless
 public abstract class CRUDOperation<Entity, DTO> {
 
     @EJB

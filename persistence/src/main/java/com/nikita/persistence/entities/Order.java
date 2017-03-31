@@ -19,7 +19,16 @@ public class Order{
     private List<Photo> photos;
     private Pavilion pavilion;
     private Calendar orderDate;
+    private boolean accepted;
 
+    public boolean isAccepted() {
+        return accepted;
+    }
+
+    public void setAccepted(boolean accepted) {
+        this.accepted = accepted;
+    }
+    
     public Integer getId() {
         return id;
     }

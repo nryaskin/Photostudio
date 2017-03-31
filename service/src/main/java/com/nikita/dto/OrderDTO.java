@@ -10,7 +10,8 @@ public class OrderDTO {
     private List<PhotoDTO> photos;
     private PavilionDTO pavilion;
     private Calendar orderDate;
-
+    private boolean accepted;
+    
     public Integer getId() {
         return id;
     }
