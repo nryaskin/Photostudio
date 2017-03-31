@@ -1,4 +1,4 @@
-package com.nikita.persistance.facade;
+package com.nikita.persistence.facade;
 
 import java.util.List;
 import javax.persistence.EntityManager;

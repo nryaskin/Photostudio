@@ -1,4 +1,4 @@
-package com.nikita.persistance.entities;
+package com.nikita.persistence.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

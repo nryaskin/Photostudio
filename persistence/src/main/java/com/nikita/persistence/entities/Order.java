@@ -1,4 +1,4 @@
-package com.nikita.persistance.entities;
+package com.nikita.persistence.entities;
 
 import java.io.Serializable;
 import java.util.Calendar;
