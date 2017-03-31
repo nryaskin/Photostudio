@@ -1,4 +1,4 @@
-package com.nikita.persistance.entities;
+package com.nikita.persistence.entities;
 
 import java.util.List;
 import java.util.Queue;
@@ -10,7 +10,6 @@ public class Photolab {
     
     @Id
     private Integer id;
-    private boolean isWorking;
     private Queue<Photo> activePhotos;
 
     public Integer getId() {
@@ -19,14 +18,6 @@ public class Photolab {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public boolean isIsWorking() {
-        return isWorking;
-    }
-
-    public void setIsWorking(boolean isWorking) {
-        this.isWorking = isWorking;
     }
 
     public Queue<Photo> getActivePhotos() {

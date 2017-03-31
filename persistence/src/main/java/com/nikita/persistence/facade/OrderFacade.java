@@ -1,16 +1,16 @@
-package com.nikita.persistance.facade;
+package com.nikita.persistence.facade;
 
+import com.nikita.persistence.entities.Order;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-public class PavilionFacade extends AbstractFacade<PavilionFacade> {
+public class OrderFacade extends AbstractFacade<Order> {
 
     @PersistenceContext(unitName="com.nikita_persistance_jar_1.0-SNAPSHOTPU")
     private EntityManager em;
     
-    
-    public PavilionFacade(){
-        super(PavilionFacade.class);
+    public OrderFacade(){
+        super(Order.class);
     }
     
     @Override

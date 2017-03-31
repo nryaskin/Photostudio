@@ -6,10 +6,10 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>persistance</module>
         <module>service</module>
     <module>web</module>
-  </modules>
+        <module>persistence</module>
+    </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
