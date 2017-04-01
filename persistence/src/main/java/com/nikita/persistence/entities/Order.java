@@ -3,22 +3,42 @@ package com.nikita.persistence.entities;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="orders")
 public class Order{
     
     public Order(){
         
     }
     @Id
+    @Column(name="order_id")
     private Integer id;
+    
+    @ManyToOne(fetch = FetchType.LAZY)
     private Photographer photographer;
+    
+    @ManyToOne(fetch = FetchType.LAZY)
     private Client client;
+    
+    @OneToMany(cascade=CascadeType.ALL, mappedBy="order_id")
     private List<Photo> photos;
+    
     private Pavilion pavilion;
+    
+    @Column(name="order_date")
     private Calendar orderDate;
+    
+    
     private boolean accepted;
 
     public boolean isAccepted() {
@@ -77,13 +97,15 @@ public class Order{
         this.orderDate = orderDate;
     }
 
-    public Calendar getOrderDelicery() {
-        return orderDelicery;
+    public Calendar getOrderDelivery() {
+        return orderDelivery;
     }
 
-    public void setOrderDelicery(Calendar orderDelicery) {
-        this.orderDelicery = orderDelicery;
+    public void setOrderDelivery(Calendar orderDelivery) {
+        this.orderDelivery = orderDelivery;
     }
-    private Calendar orderDelicery;
+    
+    @Column(name="order_delivery")
+    private Calendar orderDelivery;
     
 }

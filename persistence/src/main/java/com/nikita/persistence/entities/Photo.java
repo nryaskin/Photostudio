@@ -28,5 +28,6 @@ public class Photo{
     public void setPhototype(String phototype) {
         this.phototype = phototype;
     }
+    
     private String phototype;
 }

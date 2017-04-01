@@ -28,6 +28,14 @@ public abstract class CRUDOperation<Entity, DTO> {
     public void remove(DTO dto) {
         getFacade().remove(converter.convert(dto, entityType));
     }
+    
+    public DTO findById(Object id){
+        return converter.convert(getFacade().find(id),  dtoType);
+    }
+    
+    public void update(DTO dto){
+                getFacade().edit(converter.convert(dto, entityType));
+    }
 
     public List<DTO> getAll() {
         List<DTO> entityDTO = new ArrayList<>();

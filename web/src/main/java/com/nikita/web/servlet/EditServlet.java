@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.nikita.web.servlet;
 
 import com.nikita.dto.PhotographerDTO;
@@ -11,21 +6,15 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Никита
- */
-@WebServlet(name = "AdminServlet", urlPatterns = {"/AdminServlet"})
-public class AdminServlet extends HttpServlet {
+public class EditServlet extends HttpServlet {
 
     @EJB
-    PhotographerService photographerService;
-    
+    private PhotographerService photographerService;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -37,23 +26,28 @@ public class AdminServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet AdminServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet AdminServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        out.println("<h1>Update Photographer</h1>");
+        String username = request.getParameter("username");
+
+        PhotographerDTO ph = photographerService.findById(username);
+
+        out.print("<form action='EditServlet2' method='post'>");
+        out.print("<table>");
+        out.print("<tr><td></td><td><input type='hidden' name='username' value='" + ph.getUsername() + "'/></td></tr>");
+        out.print("<tr><td>Password:</td><td><input type='password' name='password' value='" + ph.getPassword() + "'/>  </td></tr>");
+        out.print("<tr><td>Name:</td><td><input type='text' name='name' value='" + ph.getName() + "'/></td></tr>");
+        out.print("<tr><td>Email:</td><td><input type='text' name='surname' value='" + ph.getSurname() + "'/></td></tr>");
+        out.print("</td></tr>");
+        out.print("<tr><td colspan='2'><input type='submit' value='Edit & Save '/></td></tr>");
+        out.print("</table>");
+        out.print("</form>");
+
+        out.close();
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
