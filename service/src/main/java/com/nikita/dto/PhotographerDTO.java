@@ -1,9 +1,13 @@
 package com.nikita.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PhotographerDTO extends UserDTO {
 
+    public PhotographerDTO(){
+    }
+    
     public List<OrderDTO> getOrders() {
         return orders;
     }
