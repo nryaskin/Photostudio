@@ -7,11 +7,10 @@
   <mapping map-null="false"> 
     <class-a map-null="false">com.nikita.persistence.entities.Photographer</class-a>
     <class-b map-null="false">com.nikita.dto.PhotographerDTO</class-b>   
-    <field>
+    <field-exclude>
       <a>orders</a>
       <b>orders</b>
-      <a-hint>com.nikita.persistence.entities.Order</a-hint>
-      <b-hint>com.nikita.dto.OrderDTO</b-hint> 
-    </field>
+    </field-exclude>
+    
   </mapping>  
 </mappings>

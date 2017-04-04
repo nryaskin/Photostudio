@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 public class SaveServlet extends HttpServlet {
 
     @EJB
-    PhotographerService photographerService;
+    private PhotographerService photographerService;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

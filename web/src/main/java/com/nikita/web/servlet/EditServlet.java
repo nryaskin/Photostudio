@@ -35,10 +35,10 @@ public class EditServlet extends HttpServlet {
 
         out.print("<form action='EditServlet2' method='post'>");
         out.print("<table>");
-        out.print("<tr><td></td><td><input type='hidden' name='username' value='" + ph.getUsername() + "'/></td></tr>");
+        out.print("<tr><td>Username:</td><td><input type='text' name='username' value='" + ph.getUsername() + "'/></td></tr>");
         out.print("<tr><td>Password:</td><td><input type='password' name='password' value='" + ph.getPassword() + "'/>  </td></tr>");
         out.print("<tr><td>Name:</td><td><input type='text' name='name' value='" + ph.getName() + "'/></td></tr>");
-        out.print("<tr><td>Email:</td><td><input type='text' name='surname' value='" + ph.getSurname() + "'/></td></tr>");
+        out.print("<tr><td>Surname:</td><td><input type='text' name='surname' value='" + ph.getSurname() + "'/></td></tr>");
         out.print("</td></tr>");
         out.print("<tr><td colspan='2'><input type='submit' value='Edit & Save '/></td></tr>");
         out.print("</table>");

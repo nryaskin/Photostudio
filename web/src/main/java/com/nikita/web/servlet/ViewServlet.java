@@ -1,7 +1,6 @@
 package com.nikita.web.servlet;
 
 import com.nikita.dto.PhotographerDTO;
-import com.nikita.persistence.entities.Photographer;
 import com.nikita.service.PhotographerService;
 import java.io.IOException;
 import java.io.PrintWriter;

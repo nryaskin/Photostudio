@@ -82,7 +82,7 @@ public class EditServlet2 extends HttpServlet {
         String username=request.getParameter("username");
         String name=request.getParameter("name");  
         String password=request.getParameter("password");  
-        String surname=request.getParameter("country");  
+        String surname=request.getParameter("surname");  
           
         PhotographerDTO ph=new PhotographerDTO();  
         ph.setUsername(username);
