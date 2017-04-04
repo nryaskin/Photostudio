@@ -24,6 +24,10 @@
         <servlet-name>EditServlet2</servlet-name>
         <servlet-class>com.nikita.web.servlet.EditServlet2</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UserController</servlet-name>
+        <servlet-class>com.nikita.web.controller.UserController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdminServlet</servlet-name>
         <url-pattern>/AdminPage</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>EditServlet2</servlet-name>
         <url-pattern>/EditServlet2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserController</servlet-name>
+        <url-pattern>/jsp/UserController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
