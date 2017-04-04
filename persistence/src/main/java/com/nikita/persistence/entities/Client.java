@@ -21,7 +21,7 @@ public class Client extends User{
     public void setOrders(List<Order> orders) {
         this.orders = orders;
     }
-    @OneToMany(cascade = CascadeType.ALL, mappedBy="username")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="client")
     private List<Order> orders;
     
 }

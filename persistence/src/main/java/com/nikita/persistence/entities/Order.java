@@ -30,7 +30,7 @@ public class Order{
     @ManyToOne(fetch = FetchType.LAZY)
     private Client client;
     
-    @OneToMany(cascade=CascadeType.ALL, mappedBy="order_id")
+    @OneToMany(cascade=CascadeType.ALL)
     private List<Photo> photos;
     
     private Pavilion pavilion;

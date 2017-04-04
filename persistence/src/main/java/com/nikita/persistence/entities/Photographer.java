@@ -22,6 +22,6 @@ public class Photographer extends User{
         this.orders = orders;
     }
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "username")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "photographer")
     private List<Order> orders;
 }
