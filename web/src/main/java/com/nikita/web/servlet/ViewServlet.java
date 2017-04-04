@@ -1,6 +1,7 @@
 package com.nikita.web.servlet;
 
 import com.nikita.dto.PhotographerDTO;
+import com.nikita.persistence.entities.Photographer;
 import com.nikita.service.PhotographerService;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -56,10 +57,10 @@ public class ViewServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html");  
         PrintWriter out=response.getWriter();  
-        out.println("<a href='index.html'>Add New Employee</a>");  
-        out.println("<h1>Employees List</h1>");  
+        out.println("<a href='index.html'>Add New Photographer</a>");  
+        out.println("<h1>Photographers List</h1>");  
           
-        List<PhotographerDTO> list=photographerService.getAll();  
+        List<PhotographerDTO> list= photographerService.getAll();  
           
         out.print("<table border='1' width='100%'");  
         out.print("<tr><th>Id</th><th>username</th><th>Password</th><th>Name</th><th>Surname</th><th>Edit</th><th>Delete</th></tr>");  
