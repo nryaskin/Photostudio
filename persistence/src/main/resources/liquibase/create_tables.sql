@@ -38,17 +38,6 @@ CREATE TABLE orders
     constraint fk_pavilion FOREIGN KEY (pavilion_id) references pavilion(pavilion_id)
 );
 
-
-CREATE TABLE photo
-(
-    photo_id INTEGER PRIMARY KEY,
-    photo_type VARCHAR(255),
-    order_id INTEGER,
-    constraint fk_order_id FOREIGN KEY (order_id) references orders(order_id)
-);
-
-
-
 CREATE TABLE photolab
 (
     photolab_id INTEGER PRIMARY KEY,
@@ -56,5 +45,22 @@ CREATE TABLE photolab
     constraint fk_pavilion_id FOREIGN KEY (pavilion_id) references pavilion(pavilion_id)
 );
 
+CREATE TABLE photo
+(
+    photo_id INTEGER PRIMARY KEY,
+    photo_type VARCHAR(255),
+    order_id INTEGER,
+    photolab_id INTEGER,
+    constraint fk_order_id FOREIGN KEY (order_id) references orders(order_id)
+);
+
+CREATE TABLE photolab_photo
+(
+    photolab_id INTEGER,
+    photo_id INTEGER, 
+    constraint PK_Photolab_photo PRIMARY KEY (photolab_id, photo_id),
+    constraint  FK_photolab_id FOREIGN KEY (photolab_id) references photolab(photolab_id),
+    constraint FK_photo_id FOREIGN KEY (photo_id) references photo(photo_id)
+);
 
 --rollback DROP TABLE users;

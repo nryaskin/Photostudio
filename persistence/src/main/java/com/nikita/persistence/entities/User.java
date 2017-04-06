@@ -10,6 +10,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "users")
@@ -21,8 +22,10 @@ public class User {
     }
 
     @Id
+    @NotNull
     protected String username;
     @Column(name="passwd")
+    @NotNull
     protected String password;
     @Column(name="first_name")
     protected String name;

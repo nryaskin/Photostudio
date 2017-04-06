@@ -1,5 +1,6 @@
 package com.nikita.persistence.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -29,5 +30,6 @@ public class Photo{
         this.phototype = phototype;
     }
     
+    @Column(name = "photo_type")
     private String phototype;
 }
