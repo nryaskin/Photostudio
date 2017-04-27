@@ -64,4 +64,19 @@ public class User {
         this.surname = surname;
     }
 
+    
+    
+    @Override
+    public boolean equals(Object o){
+        
+        if (!(o instanceof User)) {
+            return false;
+        }
+        
+        User user = (User)o;
+        
+        return user.username.equals(this.username) 
+                && user.password.equals(this.password);
+    }
+    
 }

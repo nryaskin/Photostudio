@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -25,13 +26,17 @@ public class Order{
     private Integer id;
     
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="photographer", referencedColumnName="username")
     private Photographer photographer;
     
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="client", referencedColumnName="username")
     private Client client;
     
     @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name="order_id")
     private List<Photo> photos;
+    
     
     private Pavilion pavilion;
     

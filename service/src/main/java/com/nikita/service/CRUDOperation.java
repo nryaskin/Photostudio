@@ -37,6 +37,13 @@ public abstract class CRUDOperation<Entity, DTO> {
                 getFacade().edit(converter.convert(dto, entityType));
     }
 
+    
+    public List<Entity> getAllEntity() {
+        List<Entity> ordersEntities = getFacade().findAll();
+        
+        return ordersEntities;
+    }
+    
     public List<DTO> getAll() {
         List<DTO> entityDTO = new ArrayList<>();
         List<Entity> ordersEntities = getFacade().findAll();

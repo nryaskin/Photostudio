@@ -3,6 +3,7 @@ package com.nikita.service;
 import com.nikita.dto.OrderDTO;
 import com.nikita.dto.UserDTO;
 import com.nikita.persistence.entities.Order;
+import com.nikita.persistence.entities.User;
 import com.nikita.persistence.facade.AbstractFacade;
 import com.nikita.persistence.facade.OrderFacade;
 import java.util.ArrayList;
@@ -41,19 +42,19 @@ public class OrderService extends CRUDOperation<Order, OrderDTO> {
 
     public List<OrderDTO> getNew(UserDTO user) {
         return chooseOrders(o -> o.getPhotographer()
-                .equals(converter.convert(user, entityType)) 
+                .equals(converter.convert(user, User.class)) 
                 && !o.isAccepted());
     }
 
     public List<OrderDTO> getAcceptedOrders(UserDTO user) {
         return chooseOrders(o -> o.getPhotographer()
-                .equals(converter.convert(user, entityType))
+                .equals(converter.convert(user, User.class))
                 && o.isAccepted());
     }
 
     public List<OrderDTO> getOrders(UserDTO user) {
                 return chooseOrders(o -> o.getClient()
-                .equals(converter.convert(user, entityType)));
+                .equals(converter.convert(user, User.class)));
     }
 
     private List<OrderDTO> chooseOrders(Predicate<Order> predicate){

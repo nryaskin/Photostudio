@@ -1,7 +1,8 @@
 package com.nikita.dto;
 
 public class PhotoDTO {
-        private String phototype;
+    
+    private String phototype;
 
     public String getPhototype() {
         return phototype;

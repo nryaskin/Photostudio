@@ -1,8 +1,12 @@
 package com.nikita.dto;
 
-public class UserDTO {
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.io.Serializable;
+
+public class UserDTO implements Serializable{
 
     private String username;
+    //@JsonIgnore
     private String password;
     private String name;
     private String surname;
@@ -38,5 +42,5 @@ public class UserDTO {
     public void setSurname(String surname) {
         this.surname = surname;
     }
-
+    
 }
