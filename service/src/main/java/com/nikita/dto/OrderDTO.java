@@ -9,10 +9,9 @@ import java.util.List;
 
 public class OrderDTO implements Serializable {
     private Integer id;
-    @JsonBackReference
+    @JsonBackReference(value="photographer")
     private PhotographerDTO photographer;
-    //@JsonBackReference(value="client")
-    @JsonIgnore
+    @JsonBackReference(value="client")
     private ClientDTO client;
     
     private List<PhotoDTO> photos;

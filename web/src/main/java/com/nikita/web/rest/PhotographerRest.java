@@ -34,7 +34,6 @@ public class PhotographerRest {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response create(PhotographerDTO photographer){
         photographerService.add(photographer);
-        
         return Response.status(Response.Status.ACCEPTED).build();
     }
     
@@ -42,7 +41,6 @@ public class PhotographerRest {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response update(PhotographerDTO photographer){
         photographerService.update(photographer);
-        
         return Response.status(Response.Status.ACCEPTED).build();
     }
     

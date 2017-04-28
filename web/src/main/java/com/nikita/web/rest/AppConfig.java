@@ -14,7 +14,8 @@ public class AppConfig extends Application{
     }
 
     private void addRestResourceClasses(Set<Class<?>> resources) {
-        resources.add(PhotographerRest.class);
+        resources.add(com.nikita.web.rest.OrderRest.class);
+        resources.add(com.nikita.web.rest.PhotographerRest.class);
     }
     
 }

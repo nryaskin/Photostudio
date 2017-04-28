@@ -31,36 +31,6 @@ public class OrderRest {
     @EJB
     private PhotographerService photographerService;
     
-    class TestStr {
-        private String test;
-        private Long x;
-
-        public TestStr() {
-        }
-
-        public TestStr(String test, Long x) {
-            this.test = test;
-            this.x = x;
-        }
-
-        public String getTest() {
-            return test;
-        }
-
-        public void setTest(String test) {
-            this.test = test;
-        }
-
-        public Long getX() {
-            return x;
-        }
-
-        public void setX(Long x) {
-            this.x = x;
-        }
-        
-        
-    }
     
     @GET
     @Path("/client/{username}")
@@ -85,10 +55,12 @@ public class OrderRest {
     
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response updateOrder(String test){
+    public Response updateOrder(OrderDTO order){
         try {
-            System.out.println("TEXT: " + test);
-        //orderService.update(order);
+            OrderDTO tmp = orderService.findById(order.getId());
+            order.setClient(tmp.getClient());
+            order.setPhotographer(tmp.getPhotographer());
+            orderService.update(order);
         }catch(Exception ex){
             return Response.status(Response.Status.NOT_FOUND).build();
         }

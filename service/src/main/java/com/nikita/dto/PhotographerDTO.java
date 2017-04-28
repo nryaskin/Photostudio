@@ -18,6 +18,6 @@ public class PhotographerDTO extends UserDTO implements Serializable {
         this.orders = orders;
     }
     
-    @JsonManagedReference
+    @JsonManagedReference(value="photographer")
     private List<OrderDTO> orders;
 }

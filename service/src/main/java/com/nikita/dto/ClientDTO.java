@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ClientDTO extends UserDTO implements Serializable{
     
-    @JsonManagedReference
+    @JsonManagedReference(value="client")
     private List<OrderDTO> orders;
 
     public List<OrderDTO> getOrders() {
